@@ -75,7 +75,8 @@ const swapflag = () => {
     // console.log("icon clicked")
     let fromFlagSrc = document.querySelector(".from img").src;
     let toFlagSrc = document.querySelector(".to img").src;
-s
+
+    // Swap the src attributes
     document.querySelector(".from img").src = toFlagSrc;
     document.querySelector(".to img").src = fromFlagSrc;
 
