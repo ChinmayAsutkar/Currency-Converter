@@ -6,6 +6,7 @@ const btn = document.querySelector("form button");
 const fromCurr = document.querySelector(".from select");
 const toCurr = document.querySelector(".to select");
 const msg = document.querySelector(".msg");
+const icon = document.querySelector(".dropdown i")
 
 for (let select of dropdowns) {
     for (currCode in countryList) {
@@ -62,5 +63,29 @@ btn.addEventListener("click", (evt) => {
 
 window.addEventListener("load", () => {
     updateExchangeRate();
-  });
-  
+});
+
+
+icon.addEventListener("click", () => {
+
+    swapflag()
+})
+
+const swapflag = () => {
+    // console.log("icon clicked")
+    let fromFlagSrc = document.querySelector(".from img").src;
+    let toFlagSrc = document.querySelector(".to img").src;
+s
+    document.querySelector(".from img").src = toFlagSrc;
+    document.querySelector(".to img").src = fromFlagSrc;
+
+
+    let tempValue = fromCurr.value;
+    fromCurr.value = toCurr.value;
+    toCurr.value = tempValue;
+
+    fromCurr.dispatchEvent(new Event("change"));
+    toCurr.dispatchEvent(new Event("change"));
+
+    updateExchangeRate()
+}
